@@ -9,7 +9,8 @@ import requests
 
 
 def main(param_dict) -> dict:
-    """Main Function
+    """
+    Main Function
 
     Args:
         param_dict (Dict): input paramater
@@ -17,7 +18,6 @@ def main(param_dict) -> dict:
     Returns:
         Dict: output dictionary
     """
-
     try:
         client = Cloudant.iam(
             account_name=param_dict["COUCH_USERNAME"],
@@ -33,7 +33,3 @@ def main(param_dict) -> dict:
         return {"error": err}
 
     return {"dbs": client.all_dbs()}
-
-
-if __name__ == "__main__":
-    main(param_dict={})
