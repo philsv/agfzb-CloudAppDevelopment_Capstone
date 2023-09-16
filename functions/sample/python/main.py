@@ -8,14 +8,14 @@ from cloudant.error import CloudantException
 import requests
 
 
-def main(param_dict):
+def main(param_dict) -> dict:
     """Main Function
 
     Args:
         param_dict (Dict): input paramater
 
     Returns:
-        _type_: _description_ TODO
+        Dict: output dictionary
     """
 
     try:
@@ -33,3 +33,7 @@ def main(param_dict):
         return {"error": err}
 
     return {"dbs": client.all_dbs()}
+
+
+if __name__ == "__main__":
+    main(param_dict={})

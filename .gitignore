@@ -140,5 +140,8 @@ server/djangoapp/migrations/
 *.pyc
 server/djangoapp/migrations/
 
+
+# Other files
 init.sh
 server/db.sqlite3
+functions/.creds.json
