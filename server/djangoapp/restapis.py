@@ -106,7 +106,7 @@ def analyze_review_sentiments(review_text: str) -> str:
     Calls the Watson Natural Language Understanding API to analyze the sentiment of the given text.
     """
     url = "https://api.eu-de.natural-language-understanding.watson.cloud.ibm.com/instances/33621095-d48b-4a1d-be41-cc22d402a18d/v1/analyze"
-    api_key = "qY7ok-eVR2G9r8lllGQdGnqf_Xk5bn7EOoXfcThldECO"
+    api_key = "YOUR_API_KEY"
     version = "2022-03-30"
     feature = {"sentiment": {}}  # type: ignore
 
