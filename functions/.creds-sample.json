@@ -1,4 +1,5 @@
 {
     "COUCH_URL": "",
+    "COUCH_USERNAME": "",
     "IAM_API_KEY": ""
 }

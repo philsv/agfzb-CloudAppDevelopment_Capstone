@@ -1,22 +1,24 @@
-"""IBM Cloud Function that gets all reviews for a dealership
-
-Returns:
-    List: List of reviews for the given dealership
+"""
+IBM Cloud Function that gets all databases for a Cloudant instance
 """
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 import requests
+from typing import Dict
 
 
-def main(param_dict) -> dict:
+def main(param_dict: Dict) -> Dict:
     """
-    Main Function
+    Main function that gets all databases for a Cloudant instance
 
     Args:
-        param_dict (Dict): input paramater
-
-    Returns:
-        Dict: output dictionary
+        param_dict (Dict): input paramaters
+        
+    Example:
+        >>> main({
+            "COUCH_USERNAME": "username",
+            "IAM_API_KEY": "apikey"
+        })
     """
     try:
         client = Cloudant.iam(
