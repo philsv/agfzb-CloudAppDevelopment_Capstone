@@ -13,7 +13,7 @@ def main(param_dict: Dict) -> Dict:
 
     Args:
         param_dict (Dict): input paramaters
-        
+
     Example:
         >>> main({
             "COUCH_USERNAME": "username",
@@ -21,11 +21,7 @@ def main(param_dict: Dict) -> Dict:
         })
     """
     try:
-        client = Cloudant.iam(
-            account_name=param_dict["COUCH_USERNAME"],
-            api_key=param_dict["IAM_API_KEY"],
-            connect=True,
-        )
+        client = Cloudant.iam(account_name=param_dict["COUCH_USERNAME"], api_key=param_dict["IAM_API_KEY"], connect=True)
         print(f"Databases: {client.all_dbs()}")
     except CloudantException as cloudant_exception:
         print("unable to connect")

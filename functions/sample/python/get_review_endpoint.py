@@ -13,12 +13,8 @@ def main(param_dict: Dict) -> Union[List[Dict], Dict]:
     Main function that gets all reviews for a dealer id in Cloudant
     """
     try:
-        client = Cloudant.iam(
-            account_name=param_dict["COUCH_USERNAME"],
-            api_key=param_dict["IAM_API_KEY"],
-            connect=True,
-        )
-                
+        client = Cloudant.iam(account_name=param_dict["COUCH_USERNAME"], api_key=param_dict["IAM_API_KEY"], connect=True)
+
         data_fields = [
             "id",
             "name",
@@ -30,9 +26,9 @@ def main(param_dict: Dict) -> Union[List[Dict], Dict]:
             "car_model",
             "car_year",
         ]
-        
+
         docs = client["reviews"].get_query_result({"dealership": {"$eq": param_dict["dealerId"]}}, fields=data_fields)
-        
+
         result = []
         for doc in docs:
             result.append(doc)
@@ -40,9 +36,9 @@ def main(param_dict: Dict) -> Union[List[Dict], Dict]:
             return result
         else:
             return {"error": "dealerId does not exist"}
-        
+
     except CloudantException as ce:
         return {"error": ce}
-    
+
     except (requests.exceptions.RequestException, ConnectionResetError) as err:
         return {"error": err}
